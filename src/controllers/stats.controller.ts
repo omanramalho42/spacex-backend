@@ -4,7 +4,7 @@ const Rocket = require('../model/rockets.schema');
 
 async function getBarStats(request: FastifyRequest, reply: FastifyReply) {
   try {
-    console.log("passei aqui!");
+    // console.log("passei aqui!");
     const launchers = await Launcher.find();
     const launcherData: any[] = [];
     for(const launcher of launchers) {
@@ -55,7 +55,7 @@ async function getBarStats(request: FastifyRequest, reply: FastifyReply) {
       return acc;
     }, {} as { [key: string]: { month: string, amount: number, rockets: { [name: string]: { name: string, value: number } }} });
 
-    console.log(barData,'bardata');
+    // console.log(barData,'bardata');
 
     reply.code(201).send(barData)
   } catch (err) {
@@ -66,7 +66,7 @@ async function getBarStats(request: FastifyRequest, reply: FastifyReply) {
 
 async function getPieStats(request: FastifyRequest, reply: FastifyReply) {
   try {
-    console.log("passei aqui!");
+    // console.log("passei aqui!");
     const launchers = await Launcher.find();
     const launcherData: any[] = [];
     for(const launcher of launchers) {
@@ -115,7 +115,7 @@ async function getPieStats(request: FastifyRequest, reply: FastifyReply) {
       return acc;
     },{} as { [key: string]: { value: number, success: number; errors: number; reused: number } });
 
-    console.log(pieData,'bardata');
+    // console.log(pieData,'bardata');
 
     reply.code(201).send(pieData)
   } catch (err) {
